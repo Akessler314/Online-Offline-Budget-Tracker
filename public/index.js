@@ -6,7 +6,6 @@ fetch("/api/transaction")
     return response.json();
   })
   .then(data => {
-    // save db data on global variable
     transactions = data;
 
     populateTotal();
@@ -14,12 +13,12 @@ fetch("/api/transaction")
     populateChart();
   });
 
+  //function to add up the total amount from the transactions 
 function populateTotal() {
-  // reduce transaction amounts to a single total value
   let total = transactions.reduce((total, t) => {
     return total + parseInt(t.value);
   }, 0);
-
+  //selector for the element displaying the total amount
   let totalEl = document.querySelector("#total");
   totalEl.textContent = total;
 }
@@ -71,7 +70,7 @@ function populateChart() {
         datasets: [{
             label: "Total Over Time",
             fill: true,
-            backgroundColor: "#6666ff",
+            backgroundColor: "#0068ad",
             data
         }]
     }
@@ -79,9 +78,9 @@ function populateChart() {
 }
 
 function sendTransaction(isAdding) {
-  let nameEl = document.querySelector("#t-name");
-  let amountEl = document.querySelector("#t-amount");
-  let errorEl = document.querySelector(".form .error");
+  const nameEl = document.querySelector("#t-name");
+  const amountEl = document.querySelector("#t-amount");
+  const errorEl = document.querySelector(".form .error");
 
   // validate form
   if (nameEl.value === "" || amountEl.value === "") {
@@ -93,13 +92,13 @@ function sendTransaction(isAdding) {
   }
 
   // create record
-  let transaction = {
+  const transaction = {
     name: nameEl.value,
     value: amountEl.value,
     date: new Date().toISOString()
   };
 
-  // if subtracting funds, convert amount to negative number
+  // if subtracting funds, convert amount to negative number by multiplying by negative 1 
   if (!isAdding) {
     transaction.value *= -1;
   }
