@@ -1,6 +1,7 @@
 body {
   font-size: 120%;
   font-family: Arial;
+  background-color: lightsteelblue
 }
 
 button, input {
@@ -8,18 +9,25 @@ button, input {
   font-family: Arial;
 }
 
+#add-btn { 
+  background-color: rgba(0, 128, 0, 0.5);
+}
+#sub-btn { 
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
 table {
   width: 100%;
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 2px solid black;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: lightsteelblue;
 }
 
 .error {
