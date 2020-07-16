@@ -1,7 +1,7 @@
 body {
   font-size: 120%;
   font-family: Arial;
-  background-color: lightsteelblue
+  background-color: rgb(186, 186, 187)
 }
 
 button, input {
@@ -24,10 +24,11 @@ td, th {
   border: 2px solid black;
   text-align: left;
   padding: 8px;
+  background-color: white;
 }
 
 tr:nth-child(even) {
-  background-color: lightsteelblue;
+  background-color: grey;
 }
 
 .error {
